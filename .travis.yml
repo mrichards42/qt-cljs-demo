@@ -1,0 +1,9 @@
+language: c++
+os: osx
+
+install:
+  - brew install qt
+
+script:
+  - qmake qt-cljs-demo.pro
+  - make
