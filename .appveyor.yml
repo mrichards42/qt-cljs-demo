@@ -1,0 +1,22 @@
+version: 1.0.{build}
+
+init:
+  - cmd: call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86
+
+environment:
+  QTDIR: C:\Qt\5.11.0\msvc2015
+  PATH: '%QTDIR%\bin;%PATH%'
+
+build_script:
+  - qmake qt-cljs-demo.pro -spec win32-msvc
+  - nmake
+
+after_build:
+  - mkdir dist
+  - cp app/release/app.exe dist
+  - cd dist
+  - windeployqt app.exe --no-translations --no-angle --no-opengl-sw --no-compiler-runtime
+  - 7z a %APPVEYOR_PROJECT_NAME%-%APPVEYOR_BUILD_NUMBER%-%APPVEYOR_REPO_COMMIT:~0,7%.zip * 
+
+artifacts:
+  - path: dist/*.zip
