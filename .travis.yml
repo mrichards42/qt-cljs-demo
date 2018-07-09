@@ -3,6 +3,7 @@ os: osx
 
 install:
   - brew install qt
+  - export PATH="/usr/local/opt/qt/bin:$PATH"
 
 script:
   - qmake qt-cljs-demo.pro
