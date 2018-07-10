@@ -6,14 +6,17 @@ function connect(widget, slot, f) {
     print("Hello world");
     print(Object.keys(this));
 
-    var w = loadUi(":/mainwindow.ui");
+    var w = qt.loadUi(":/mainwindow.ui");
     print(w);
-    print(Object.keys(w));
+    print(Object.keys(w).sort());
+    print(Object.getPrototypeOf(w));
+    /*
     connect(w.findChild("actionHello"), "triggered", function(tf) {
         print("Hello!", this, tf);
     });
     connect(w.findChild("actionWorld"), "triggered", function() {
         print("World!", this, arguments[0]);
     });
+    */
     w.show();
 })();

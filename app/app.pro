@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui uitools script
+QT       += core gui uitools qml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -24,7 +24,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp
+        main.cpp \
+    jsfuncs.cpp
 
 RESOURCES += \
     app.qrc
+
+HEADERS += \
+    jsfuncs.h
