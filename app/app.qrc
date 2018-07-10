@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>mainwindow.ui</file>
+        <file>main.js</file>
     </qresource>
 </RCC>
